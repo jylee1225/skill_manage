@@ -1,0 +1,54 @@
+/* ============================================
+   Placeholder Page Styles
+   ============================================ */
+
+.placeholder-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height) - 120px);
+}
+
+.placeholder-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 80px;
+  max-width: 500px;
+}
+
+.placeholder-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.placeholder-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.placeholder-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.placeholder-badge {
+  padding: 6px 16px;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}

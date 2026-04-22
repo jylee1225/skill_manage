@@ -1,0 +1,334 @@
+/* ============================================
+   Editor Page Styles
+   ============================================ */
+
+.editor-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height) - 56px);
+}
+
+/* ── Header ── */
+.editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.editor-header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.editor-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.editor-tabs {
+  display: flex;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-primary);
+  overflow: hidden;
+}
+
+.editor-tab {
+  padding: 8px 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all var(--transition-fast);
+  border-right: 1px solid var(--border-primary);
+}
+
+.editor-tab:last-child {
+  border-right: none;
+}
+
+.editor-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
+}
+
+.editor-tab--active {
+  color: white;
+  background: var(--accent-primary);
+}
+
+.editor-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Token Counter ── */
+.token-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+.token-counter--safe {
+  background: var(--status-active-bg);
+  color: var(--status-active);
+  border: 1px solid var(--status-active-border);
+}
+
+.token-counter--warning {
+  background: var(--status-paused-bg);
+  color: var(--status-paused);
+  border: 1px solid var(--status-paused-border);
+  animation: pulse 2s infinite;
+}
+
+.token-counter--danger {
+  background: var(--status-stopped-bg);
+  color: var(--status-stopped);
+  border: 1px solid var(--status-stopped-border);
+  animation: pulse 1.5s infinite;
+}
+
+.token-counter-value {
+  font-size: var(--font-size-sm);
+}
+
+.token-counter-label {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+/* ── Buttons ── */
+.editor-slim-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.editor-slim-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.editor-save-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: var(--accent-gradient);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  box-shadow: var(--accent-glow);
+}
+
+.editor-save-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+}
+
+.editor-save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.editor-last-saved {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+/* ── Body (Editor + Sidebar) ── */
+.editor-body {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.editor-main {
+  flex: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+  background: #1e1e1e;
+}
+
+.editor-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.editor-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-primary);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Sidebar (Snapshots) ── */
+.editor-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--bg-card);
+  backdrop-filter: var(--blur-md);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.editor-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--text-secondary);
+}
+
+.editor-sidebar-header h3 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.snapshot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.snapshot-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-left: 2px solid var(--border-primary);
+  padding-left: 18px;
+  position: relative;
+}
+
+.snapshot-item:last-child {
+  border-left-color: transparent;
+}
+
+.snapshot-dot {
+  position: absolute;
+  left: -5px;
+  top: 18px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  border: 2px solid var(--bg-card);
+}
+
+.snapshot-info {
+  flex: 1;
+}
+
+.snapshot-time {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.snapshot-tokens {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.snapshot-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.snapshot-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.snapshot-btn:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.snapshot-btn--rollback:hover {
+  border-color: var(--status-paused-border);
+  color: var(--status-paused);
+}
+
+/* ── Warning Banner ── */
+.editor-warning-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  margin-top: 16px;
+  background: var(--status-paused-bg);
+  border: 1px solid var(--status-paused-border);
+  border-radius: var(--radius-sm);
+  color: var(--status-paused);
+  font-size: var(--font-size-sm);
+}
+
+.editor-warning-banner strong {
+  font-weight: 600;
+}
+
+.editor-warning-banner span {
+  flex: 1;
+}
+
+.editor-warning-btn {
+  padding: 5px 14px;
+  background: var(--status-paused);
+  color: var(--text-inverse);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.editor-warning-btn:hover {
+  opacity: 0.9;
+}

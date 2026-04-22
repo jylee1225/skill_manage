@@ -1,0 +1,71 @@
+/* ============================================
+   Badge Styles
+   ============================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Variants */
+.badge--active {
+  background: var(--status-active-bg);
+  color: var(--status-active);
+  border: 1px solid var(--status-active-border);
+}
+.badge--active .badge-dot {
+  background: var(--status-active);
+  box-shadow: 0 0 6px var(--status-active);
+}
+
+.badge--paused {
+  background: var(--status-paused-bg);
+  color: var(--status-paused);
+  border: 1px solid var(--status-paused-border);
+}
+.badge--paused .badge-dot {
+  background: var(--status-paused);
+  box-shadow: 0 0 6px var(--status-paused);
+}
+
+.badge--stopped {
+  background: var(--status-stopped-bg);
+  color: var(--status-stopped);
+  border: 1px solid var(--status-stopped-border);
+}
+.badge--stopped .badge-dot {
+  background: var(--status-stopped);
+  box-shadow: 0 0 6px var(--status-stopped);
+}
+
+.badge--info {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-primary);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+.badge--info .badge-dot {
+  background: var(--accent-primary);
+}
+
+.badge--warning {
+  background: var(--status-paused-bg);
+  color: var(--status-paused);
+  border: 1px solid var(--status-paused-border);
+}
+.badge--warning .badge-dot {
+  background: var(--status-paused);
+}
